@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>З Днем народження, Ангеліно! 💖</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #4931c6 0, #160827 40%, #05010f 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ✨ Сяйво */
+    .glow {
+      position: fixed;
+      top: -80px;
+      left: 50%;
+      width: 600px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(120,90,255,0.85), transparent 60%);
+      transform: translateX(-50%);
+      opacity: 0.7;
+      pointer-events: none;
+      animation: glowPulse 6s ease-in-out infinite;
+    }
+    @keyframes glowPulse {
+      0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.9; transform: translateX(-50%) scale(1.08); }
+      100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    }
+
+    /* 🎈 Кульки — тепер летять вгору */
+    .balloon {
+      position: fixed;
+      width: 80px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, rgba(255,255,255,0.4) 18%, transparent 40%);
+      animation: floatUp 10s linear infinite;
+    }
+    .balloon::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -45px;
+      width: 2px;
+      height: 50px;
+      background: rgba(255,255,255,0.7);
+      transform: translateX(-50%);
+    }
+
+    .b1 { left: 6%;  bottom: -20%; background-color: #ffaf40; animation-delay: 0s; }
+    .b2 { left: 22%; bottom: -25%; background-color: #7dd3fc; animation-delay: 3s; }
+    .b3 { right: 20%; bottom: -30%; background-color: #fb7185; animation-delay: 1.5s; }
+    .b4 { right: 8%;  bottom: -22%; background-color: #34d399; animation-delay: 4s; }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0); opacity: 0.9; }
+      100% { transform: translateY(-180vh); opacity: 0; }
+    }
+
+    /* ❤️ Більше сердечок + рух */
+    .side-emoji {
+      position: fixed;
+      font-size: 26px;
+      opacity: 0.9;
+      animation: emojiFloat 6s ease-in-out infinite;
+    }
+    @keyframes emojiFloat {
+      0%   { transform: translateY(0); opacity: 0.7; }
+      
+      50%  { transform: translateY(-12px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.7; }
+    }
+
+    .e1 { left: 3%;  top: 18%; animation-delay: 0s; }
+    .e2 { left: 4%;  bottom: 26%; animation-delay: 1.4s; }
+    .e3 { right: 5%; top: 22%; animation-delay: 0.8s; }
+    .e4 { right: 4%; bottom: 22%; animation-delay: 2s; }
+    .e5 { left: 12%; top: 50%; animation-delay: 2.6s; }
+    .e6 { right: 12%; top: 48%; animation-delay: 3.1s; }
+
+    /* 🎁 Листівка */
+    .card {
+      position: relative;
+      z-index: 5;
+      max-width: 560px;
+      width: 100%;
+      background: rgba(10, 8, 35, 0.94);
+      border-radius: 30px;
+      padding: 32px 36px 26px;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.8);
+      border: 1px solid rgba(255,255,255,0.08);
+      animation: cardFloat 8s ease-in-out infinite;
+    }
+
+    @keyframes cardFloat {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    .photos {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .photos img {
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      object-fit: cover;
+      border: 4px solid #ffd86b;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.7);
+    }
+
+    .title { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    .subtitle { font-size: 18px; font-weight: 700; color: #ffd86b; margin-bottom: 16px; }
+    .text { font-size: 15px; line-height: 1.7; margin-bottom: 10px; color: #f7f3ff; }
+    .highlight { margin: 10px 0 6px; font-size: 15px; font-weight: 600; color: #ffe4f8; }
+    .tagline { margin-top: 12px; font-size: 13px; color: #c9c5ff; opacity: 0.9; }
+
+    /* 🎵 Музичний блок */
+    .music {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 20;
+      background: rgba(10, 8, 35, 0.9);
+      border-radius: 18px;
+      padding: 8px 10px 6px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow"></div>
+
+  <!-- Кульки -->
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+
+  <!-- Сердечка -->
+  <div class="side-emoji e1">💖</div>
+  <div class="side-emoji e2">✨</div>
+  <div class="side-emoji e3">💕</div>
+  <div class="side-emoji e4">🌸</div>
+  <div class="side-emoji e5">💗</div>
+  <div class="side-emoji e6">💞</div>
+
+  <!-- Листівка -->
+  <div class="card">
+    <div class="photos">
+      <img src="lina.jpg" alt="Angelina 1">
+      <img src="lina2.jpg" alt="Angelina 2">
+    </div>
+
+    <div class="title">🎉 З Днем народження, Ангеліно! 🎉</div>
+    <div class="subtitle">Ти — неймовірно красива й особлива дівчинка 💖</div>
+
+    <p class="text">
+      Нехай твоє життя буде таким же ніжним і красивим, як ти:
+      з теплотою, затишком, прекрасними моментами і людьми, які щиро тебе цінують.
+    </p>
+
+    <p class="text">
+      Бажаю, щоб твої очі завжди світилися від радості,
+      щоб у серці було багато любові й спокою,
+      а кожен день приносив хоча б один маленький, але справжній щасливий момент.
+    </p>
+
+    <p class="highlight">🌸 Ти заслуговуєш тільки на найкраще — завжди, всюди і з усіх сторін 🌸</p>
+
+    <p class="text">
+      Більше красивих суконь, атмосферних вечорів, приємних фото, подорожей і мрій,
+      які потроху стають реальністю.
+    </p>
+
+    <p class="tagline">
+      Сьогодні твій день, Ангеліно. Посміхайся, світи й дозволяй світу закохуватися в тебе ще сильніше 💫
+    </p>
+  </div>
+
+  <!-- 🎵 Музика -->
+  <div class="music">
+    <span>🎵 Твій трек:</span>
+    <audio id="music" autoplay loop muted>
+      <source src="happy-birthday-254480.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById("music");
+
+    function enableAudio() {
+      audio.muted = false;
+      audio.play();
+      document.removeEventListener("click", enableAudio);
+    }
+
+    document.addEventListener("click", enableAudio);
+  </script>
+
+</body>
+</html>
